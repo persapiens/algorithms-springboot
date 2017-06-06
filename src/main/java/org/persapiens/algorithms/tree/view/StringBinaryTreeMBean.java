@@ -21,49 +21,33 @@ import javax.inject.Named;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.persapiens.algorithms.tree.IntegerBinaryTree;
-import org.persapiens.algorithms.tree.IntegerTreeNode;
+import org.persapiens.algorithms.tree.StringBinaryTree;
+import org.persapiens.algorithms.tree.StringTreeNode;
 import org.primefaces.model.DefaultOrganigramNode;
 import org.primefaces.model.OrganigramNode;
 
 /**
- * IntegerBinaryTreeMBean to show graphically.
+ * StringBinaryTreeMBean to show graphically.
  * @author Marcelo Fernandes
  */
 @Getter
 @Setter
 @Named
 @ViewScoped
-public class IntegerBinaryTreeMBean extends AbstractIntegerTreeMBean<IntegerBinaryTree, IntegerTreeNode> {
+public class StringBinaryTreeMBean extends AbstractStringTreeMBean<StringBinaryTree, StringTreeNode> {
 
 	private static final long serialVersionUID = 1L;
 
 	@Override
-	protected IntegerBinaryTree initTree() {
-		IntegerBinaryTree tree = new IntegerBinaryTree();
-		tree.insert(10);
-		tree.insert(8);
-		tree.insert(7);
-		tree.insert(9);
-		tree.insert(15);
-		tree.insert(14);
-		tree.insert(16);
-		tree.insert(17);
-		tree.insert(26);
-		tree.insert(22);
-		tree.insert(21);
-		tree.insert(23);
-		tree.insert(30);
-		tree.insert(32);
-		tree.insert(28);
-		tree.insert(29);
-		tree.insert(6);
+	protected StringBinaryTree initTree() {
+		StringBinaryTree tree = new StringBinaryTree();
+		tree.insert("algorithms");
 		
 		return tree;
 	}
 	
 	@Override
-	protected OrganigramNode buildOrganigram(IntegerTreeNode node, OrganigramNode organigramNodeParent) {
+	protected OrganigramNode buildOrganigram(StringTreeNode node, OrganigramNode organigramNodeParent) {
 		OrganigramNode organigramNode = null;
 		if (node != null) {
 			organigramNode = new DefaultOrganigramNode("employee", node, organigramNodeParent);

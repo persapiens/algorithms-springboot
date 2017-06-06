@@ -21,8 +21,8 @@ import javax.inject.Named;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.persapiens.algorithms.tree.IntegerRedBlackTree;
-import org.persapiens.algorithms.tree.IntegerRedBlackTreeNode;
+import org.persapiens.algorithms.tree.StringRedBlackTree;
+import org.persapiens.algorithms.tree.StringRedBlackTreeNode;
 import org.primefaces.model.DefaultOrganigramNode;
 import org.primefaces.model.OrganigramNode;
 
@@ -34,33 +34,20 @@ import org.primefaces.model.OrganigramNode;
 @Setter
 @Named
 @ViewScoped
-public class IntegerRedBlackTreeMBean extends AbstractIntegerTreeMBean<IntegerRedBlackTree, IntegerRedBlackTreeNode> {
+public class StringRedBlackTreeMBean extends AbstractStringTreeMBean<StringRedBlackTree, StringRedBlackTreeNode> {
 
 	private static final long serialVersionUID = 1L;
 	
 	@Override
-	protected IntegerRedBlackTree initTree() {
-		IntegerRedBlackTree tree = new IntegerRedBlackTree();
-		tree.insert(7);
-		tree.insert(4);
-		tree.insert(11);		
-		tree.insert(3);
-		tree.insert(6);		
-		tree.insert(9);		
-		tree.insert(18);
-		tree.insert(2);
-		tree.insert(14);
-		tree.insert(19);
-		tree.insert(12);
-		tree.insert(17);
-		tree.insert(22);
-		tree.insert(20);
+	protected StringRedBlackTree initTree() {
+		StringRedBlackTree tree = new StringRedBlackTree();
+		tree.insert("algorithms");
 		
 		return tree;
 	}
 
 	@Override
-	protected OrganigramNode buildOrganigram(IntegerRedBlackTreeNode node, OrganigramNode organigramNodeParent) {
+	protected OrganigramNode buildOrganigram(StringRedBlackTreeNode node, OrganigramNode organigramNodeParent) {
 		OrganigramNode organigramNode = null;
 		if (node != null && !node.equals(getTree().getNill()) ){
 			organigramNode = new DefaultOrganigramNode(node.getColor().toString().toLowerCase(), node, organigramNodeParent);

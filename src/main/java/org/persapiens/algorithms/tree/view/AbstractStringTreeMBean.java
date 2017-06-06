@@ -35,21 +35,21 @@ import org.primefaces.event.organigram.OrganigramNodeSelectEvent;
 import org.primefaces.model.OrganigramNode;
 
 /**
- * IntegerBinaryTreeMBean to show graphically.
+ * AbstractStringTreeMBean to show graphically.
  * @author Marcelo Fernandes
  */
 @Getter
 @Setter
 @Named
 @ViewScoped
-public abstract class AbstractIntegerTreeMBean <BT extends BinaryTree<TN, Integer>, TN extends TreeNode<TN, Integer>> implements Serializable {
+public abstract class AbstractStringTreeMBean <BT extends BinaryTree<TN, String>, TN extends TreeNode<TN, String>> implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
     private OrganigramNode rootNode;
     private OrganigramNode selection;
  
-    private int key = 0;
+    private String key = "";
 
 	private BT tree;
 	
@@ -73,7 +73,7 @@ public abstract class AbstractIntegerTreeMBean <BT extends BinaryTree<TN, Intege
 		
         selection = rootNode;
 		
-		this.key = 0;
+		this.key = "";
 	}
  
     public void deleteKeyAction() {

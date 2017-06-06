@@ -21,20 +21,20 @@
                 <p:panel id="panel">
                     <h:panelGrid columns="3">
                         <h:outputLabel value="key" />
-                        <p:inputText id="key" value="#{integerRedBlackTreeMBean.key}" />
+                        <p:inputText id="key" value="#{stringRedBlackTreeMBean.key}" />
                                      
                         <p:commandButton value="Adicionar" 
                                          update=":form:organigram panel" 
-                                         actionListener="#{integerRedBlackTreeMBean.addKeyAction()}"/>
+                                         actionListener="#{stringRedBlackTreeMBean.addKeyAction()}"/>
                         
                         <h:outputLabel value="Key selecionada:" />
-                        <h:outputLabel id="keySelecionada" value="#{integerRedBlackTreeMBean.selection.data}"/>
+                        <h:outputLabel id="keySelecionada" value="#{stringRedBlackTreeMBean.selection.data}"/>
                                      
                         <p:commandButton id="deleteKeyButton"
                                          value="Remover" 
                                          update=":form:organigram panel" 
-                                         disabled="#{integerRedBlackTreeMBean.tree.isEmpty()}"
-                                         actionListener="#{integerRedBlackTreeMBean.deleteKeyAction()}"/>
+                                         disabled="#{stringRedBlackTreeMBean.tree.isEmpty()}"
+                                         actionListener="#{stringRedBlackTreeMBean.deleteKeyAction()}"/>
                         <p:focus for="key"/>
                     </h:panelGrid>
                 </p:panel>
@@ -69,18 +69,18 @@
 
                 <p:organigram id="organigram"
                               widgetVar="organigram"
-                              value="#{integerRedBlackTreeMBean.rootNode}"
+                              value="#{stringRedBlackTreeMBean.rootNode}"
                               var="node"
                               leafNodeConnectorHeight="0"
                               autoScrollToSelection="true"
                               zoom="true"
-                              selection="#{integerRedBlackTreeMBean.selection}"
+                              selection="#{stringRedBlackTreeMBean.selection}"
                               style="width: 100%">
 
-                    <p:ajax event="select" process="@this" update="@form:growl :formOptions:keySelecionada" listener="#{integerRedBlackTreeMBean.nodeSelectListener}" />
+                    <p:ajax event="select" process="@this" update="@form:growl :formOptions:keySelecionada" listener="#{stringRedBlackTreeMBean.nodeSelectListener}" />
                     <p:ajax event="contextmenu" process="@this" />
-                    <p:ajax event="collapse" process="@this" update="@form:growl" listener="#{integerRedBlackTreeMBean.nodeCollapseListener}" />
-                    <p:ajax event="expand" process="@this" update="@form:growl" listener="#{integerRedBlackTreeMBean.nodeExpandListener}" />
+                    <p:ajax event="collapse" process="@this" update="@form:growl" listener="#{stringRedBlackTreeMBean.nodeCollapseListener}" />
+                    <p:ajax event="expand" process="@this" update="@form:growl" listener="#{stringRedBlackTreeMBean.nodeExpandListener}" />
 
                     <p:organigramNode type="division"
                                       style="font-size: 11px; width: 25px; height: 25px;"
@@ -106,14 +106,14 @@
                     <p:menuitem value="remover"
                                 update="organigram :formOptions:panel"
                                 icon="ui-icon-close"
-                                actionListener="#{integerRedBlackTreeMBean.deleteKeyAction()}" />
+                                actionListener="#{stringRedBlackTreeMBean.deleteKeyAction()}" />
                 </p:contextMenu>
                 
                 <p:contextMenu for="organigram" nodeType="black">
                     <p:menuitem value="remover"
                                 update="organigram :formOptions:panel"
                                 icon="ui-icon-close"
-                                actionListener="#{integerRedBlackTreeMBean.deleteKeyAction()}" />
+                                actionListener="#{stringRedBlackTreeMBean.deleteKeyAction()}" />
                 </p:contextMenu>
             </h:form>
         </h:body>
